@@ -13,10 +13,19 @@ namespace sti11kost.Passwords.PasswordGenerator
         public string includeString { get; set; }
         public bool difirentRegister { get; set; }
         public bool useNumerics { get; set; }
+        public bool useSpecDigits { get; set; }
         RandomStringBuilder RandomStringBuilder { get; set; }
 
         public CustomPasswordGenerator() => RandomStringBuilder = new RandomStringBuilder();
         
+        public CustomPasswordGenerator(int size, string includeString, bool difirentRegister, bool useNumerics)
+        {
+            RandomStringBuilder = new RandomStringBuilder();
+            this.size = size;
+            this.includeString = includeString;
+            this.difirentRegister = difirentRegister;
+            this.useNumerics = useNumerics;
+        }
 
         public string GeneratePassword()
         {
@@ -28,8 +37,8 @@ namespace sti11kost.Passwords.PasswordGenerator
             }
             int newSize = size - includeStrSize;
             int random = new Random().Next(0, 11);
-            return random % 2 == 0 ? (includeString) + RandomStringBuilder.GetRandomString(newSize, difirentRegister, useNumerics) 
-                : RandomStringBuilder.GetRandomString(newSize, difirentRegister, useNumerics) + (includeString);
+            return random % 2 == 0 ? (includeString) + RandomStringBuilder.GetRandomString(newSize, difirentRegister, useNumerics, useSpecDigits) 
+                : RandomStringBuilder.GetRandomString(newSize, difirentRegister, useNumerics, useSpecDigits) + (includeString);
         }
     }
 }

@@ -15,52 +15,35 @@ namespace sti11kost.Passwords
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            int _count = 1;
-
             ResetErrorMessages(new List<Label>() {
-                sizeError
+                sizeError, includeStrWarning
             });
 
             CustomPasswordGenerator passwordGenerator = new CustomPasswordGenerator();
-            if(int.TryParse(size.Text, out int _size))
-            {
-                passwordGenerator.size = _size;
-            }
-            else
+
+            passwordGenerator.size = int.TryParse(size.Text, out int _size) ? _size : -1;
+
+            if (passwordGenerator.size == -1)
             {
                 AddErrorMessage(sizeError, "Введите число!");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(includeStr.Text))
-            {
-                passwordGenerator.includeString = includeStr.Text;
-            }
-            else
-            { }
+            passwordGenerator.includeString = !string.IsNullOrEmpty(includeStr.Text) ? includeStr.Text : "";
 
-            if (difirentRegister.Checked)
+            passwordGenerator.difirentRegister = difirentRegister.Checked ? true : false;
+
+            passwordGenerator.useNumerics = useNums.Checked ? true : false;
+
+            passwordGenerator.useSpecDigits = useSpecDigits.Checked ? true : false;
+
+
+            if (includeStr.Text.Length > _size)
             {
-                passwordGenerator.difirentRegister = true;
-            }
-            else
-            {
-                passwordGenerator.difirentRegister = false;
+                AddErrorMessage(includeStrWarning, "Входная строка больше указанного размера.");
             }
 
-            if (useNums.Checked)
-            {
-                passwordGenerator.useNumerics = true;
-            }
-            else
-            {
-                passwordGenerator.useNumerics = false;
-            }
-
-            for(int i = 0; i < _count; i++)
-            {
-                totalPasswords.Text += passwordGenerator.GeneratePassword() + "\r\n";
-            }
+            PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
         }
 
 
@@ -77,6 +60,19 @@ namespace sti11kost.Passwords
             {
                 l.Text = " ";
             }
+        }
+
+        private void PrintPassword(TextBox textBox, List<string> list)
+        {
+            foreach (string str in list)
+            {
+                textBox.Text += str + "\r\n";
+            }
+        }
+
+        private void PrintPassword(TextBox textBox, string str)
+        {
+            textBox.Text += str + "\r\n";
         }
         #endregion
     }

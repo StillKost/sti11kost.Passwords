@@ -38,6 +38,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.difirentRegister = new System.Windows.Forms.CheckBox();
             this.useNums = new System.Windows.Forms.CheckBox();
+            this.includeStrWarning = new System.Windows.Forms.Label();
+            this.useSpecDigits = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -85,11 +87,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 150);
+            this.label3.Location = new System.Drawing.Point(29, 153);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 26);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Варианты\r\nпаролей:";
+            this.label3.Text = "Пароль";
             // 
             // totalPasswords
             // 
@@ -102,11 +104,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(127, 360);
+            this.button1.Location = new System.Drawing.Point(127, 363);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Сгенерировать пароли";
+            this.button1.Text = "Сгенерировать пароль";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -130,11 +132,33 @@
             this.useNums.Text = "Использовать цифры";
             this.useNums.UseVisualStyleBackColor = true;
             // 
+            // includeStrWarning
+            // 
+            this.includeStrWarning.AutoSize = true;
+            this.includeStrWarning.ForeColor = System.Drawing.Color.Goldenrod;
+            this.includeStrWarning.Location = new System.Drawing.Point(127, 114);
+            this.includeStrWarning.Name = "includeStrWarning";
+            this.includeStrWarning.Size = new System.Drawing.Size(10, 13);
+            this.includeStrWarning.TabIndex = 10;
+            this.includeStrWarning.Text = " ";
+            // 
+            // useSpecDigits
+            // 
+            this.useSpecDigits.AutoSize = true;
+            this.useSpecDigits.Location = new System.Drawing.Point(127, 331);
+            this.useSpecDigits.Name = "useSpecDigits";
+            this.useSpecDigits.Size = new System.Drawing.Size(178, 17);
+            this.useSpecDigits.TabIndex = 9;
+            this.useSpecDigits.Text = "Использовать спец. символы";
+            this.useSpecDigits.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 409);
+            this.ClientSize = new System.Drawing.Size(506, 408);
+            this.Controls.Add(this.includeStrWarning);
+            this.Controls.Add(this.useSpecDigits);
             this.Controls.Add(this.useNums);
             this.Controls.Add(this.difirentRegister);
             this.Controls.Add(this.button1);
@@ -145,6 +169,7 @@
             this.Controls.Add(this.sizeError);
             this.Controls.Add(this.size);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -167,6 +192,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox difirentRegister;
         private System.Windows.Forms.CheckBox useNums;
+        private System.Windows.Forms.Label includeStrWarning;
+        private System.Windows.Forms.CheckBox useSpecDigits;
     }
 }
 
