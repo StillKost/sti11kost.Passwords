@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using sti11kost.Passwords.StringBuilder;
 
 namespace sti11kost.Passwords.PasswordGenerator
