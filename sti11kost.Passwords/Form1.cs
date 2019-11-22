@@ -13,14 +13,13 @@ namespace sti11kost.Passwords
             InitializeComponent();
         }
 
-
         private void Button1_Click(object sender, EventArgs e)
         {
             ResetErrorMessages(new List<Label>() {
                 sizeError, includeStrWarning
             });
 
-            CustomPasswordGenerator passwordGenerator = new CustomPasswordGenerator();
+            var passwordGenerator = new CustomPasswordGenerator();
 
             passwordGenerator.size = int.TryParse(size.Text, out int _size) ? _size : -1;
 
@@ -31,11 +30,8 @@ namespace sti11kost.Passwords
             }
 
             passwordGenerator.includeString = !string.IsNullOrEmpty(includeStr.Text) ? includeStr.Text : "";
-
             passwordGenerator.difirentRegister = difirentRegister.Checked ? true : false;
-
             passwordGenerator.useNumerics = useNums.Checked ? true : false;
-
             passwordGenerator.useSpecDigits = useSpecDigits.Checked ? true : false;
 
 
