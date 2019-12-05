@@ -139,7 +139,7 @@
             // 
             this.includeStrWarning.AutoSize = true;
             this.includeStrWarning.ForeColor = System.Drawing.Color.Goldenrod;
-            this.includeStrWarning.Location = new System.Drawing.Point(301, 103);
+            this.includeStrWarning.Location = new System.Drawing.Point(124, 123);
             this.includeStrWarning.Name = "includeStrWarning";
             this.includeStrWarning.Size = new System.Drawing.Size(10, 13);
             this.includeStrWarning.TabIndex = 10;
