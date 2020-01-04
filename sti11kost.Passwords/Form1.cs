@@ -60,7 +60,7 @@ namespace sti11kost.Passwords
             else
             {
                 countErrorMsg.ForeColor = System.Drawing.Color.Red;
-                AddErrorMessage(countErrorMsg, "Введите число.");                
+                AddErrorMessage(countErrorMsg, "Введите число!");                
             }
         }
 
