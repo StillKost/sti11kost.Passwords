@@ -42,6 +42,7 @@
             this.useSpecDigits = new System.Windows.Forms.CheckBox();
             this.passwordsCount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.countErrorMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -139,7 +140,7 @@
             // 
             this.includeStrWarning.AutoSize = true;
             this.includeStrWarning.ForeColor = System.Drawing.Color.Goldenrod;
-            this.includeStrWarning.Location = new System.Drawing.Point(301, 103);
+            this.includeStrWarning.Location = new System.Drawing.Point(124, 123);
             this.includeStrWarning.Name = "includeStrWarning";
             this.includeStrWarning.Size = new System.Drawing.Size(10, 13);
             this.includeStrWarning.TabIndex = 10;
@@ -171,11 +172,22 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Количество\r\nпаролей:";
             // 
+            // countErrorMsg
+            // 
+            this.countErrorMsg.AutoSize = true;
+            this.countErrorMsg.ForeColor = System.Drawing.Color.Red;
+            this.countErrorMsg.Location = new System.Drawing.Point(203, 64);
+            this.countErrorMsg.Name = "countErrorMsg";
+            this.countErrorMsg.Size = new System.Drawing.Size(10, 13);
+            this.countErrorMsg.TabIndex = 13;
+            this.countErrorMsg.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 408);
+            this.Controls.Add(this.countErrorMsg);
             this.Controls.Add(this.passwordsCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.includeStrWarning);
@@ -217,6 +229,7 @@
         private System.Windows.Forms.CheckBox useSpecDigits;
         private System.Windows.Forms.TextBox passwordsCount;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label countErrorMsg;
     }
 }
 

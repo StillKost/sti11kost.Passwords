@@ -16,7 +16,7 @@ namespace sti11kost.Passwords
         private void Button1_Click(object sender, EventArgs e)
         {
             ResetErrorMessages(new List<Label>() {
-                sizeError, includeStrWarning
+                sizeError, includeStrWarning, countErrorMsg
             });
 
             var passwordGenerator = new CustomPasswordGenerator();
@@ -42,16 +42,25 @@ namespace sti11kost.Passwords
 
             if (int.TryParse(passwordsCount.Text, out int passwordsCont))
             {
-                for (int i = 0; i < passwordsCont; i++)
+                if (passwordsCont > 10)
                 {
-                    PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
-                    // In order to would be no identical passwords.
-                    Thread.Sleep(10);
+                    countErrorMsg.ForeColor = System.Drawing.Color.Orange;
+                    AddErrorMessage(countErrorMsg, "Максимум 10.");
+                }
+                else
+                {
+                    for (int i = 0; i < passwordsCont; i++)
+                    {
+                        PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
+                        // In order to would be no identical passwords.
+                        Thread.Sleep(10);
+                    }
                 }
             }
             else
             {
-                PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
+                countErrorMsg.ForeColor = System.Drawing.Color.Red;
+                AddErrorMessage(countErrorMsg, "Введите число!");                
             }
         }
 
