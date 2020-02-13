@@ -43,6 +43,10 @@
             this.passwordsCount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.countErrorMsg = new System.Windows.Forms.Label();
+            this.exportTxt = new System.Windows.Forms.Button();
+            this.fileExtError = new System.Windows.Forms.Label();
+            this.clear = new System.Windows.Forms.Button();
+            this.version = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -90,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 153);
+            this.label3.Location = new System.Drawing.Point(29, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 3;
@@ -98,7 +102,7 @@
             // 
             // totalPasswords
             // 
-            this.totalPasswords.Location = new System.Drawing.Point(127, 150);
+            this.totalPasswords.Location = new System.Drawing.Point(127, 170);
             this.totalPasswords.Multiline = true;
             this.totalPasswords.Name = "totalPasswords";
             this.totalPasswords.ReadOnly = true;
@@ -108,18 +112,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(127, 363);
+            this.button1.Location = new System.Drawing.Point(127, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Сгенерировать пароль";
+            this.button1.Text = "Сгенерировать пароль (и)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // difirentRegister
             // 
             this.difirentRegister.AutoSize = true;
-            this.difirentRegister.Location = new System.Drawing.Point(127, 284);
+            this.difirentRegister.Location = new System.Drawing.Point(127, 304);
             this.difirentRegister.Name = "difirentRegister";
             this.difirentRegister.Size = new System.Drawing.Size(247, 17);
             this.difirentRegister.TabIndex = 8;
@@ -129,7 +133,7 @@
             // useNums
             // 
             this.useNums.AutoSize = true;
-            this.useNums.Location = new System.Drawing.Point(127, 308);
+            this.useNums.Location = new System.Drawing.Point(127, 328);
             this.useNums.Name = "useNums";
             this.useNums.Size = new System.Drawing.Size(136, 17);
             this.useNums.TabIndex = 9;
@@ -149,7 +153,7 @@
             // useSpecDigits
             // 
             this.useSpecDigits.AutoSize = true;
-            this.useSpecDigits.Location = new System.Drawing.Point(127, 331);
+            this.useSpecDigits.Location = new System.Drawing.Point(127, 351);
             this.useSpecDigits.Name = "useSpecDigits";
             this.useSpecDigits.Size = new System.Drawing.Size(178, 17);
             this.useSpecDigits.TabIndex = 9;
@@ -182,11 +186,56 @@
             this.countErrorMsg.TabIndex = 13;
             this.countErrorMsg.Text = " ";
             // 
+            // exportTxt
+            // 
+            this.exportTxt.Enabled = false;
+            this.exportTxt.Location = new System.Drawing.Point(311, 383);
+            this.exportTxt.Name = "exportTxt";
+            this.exportTxt.Size = new System.Drawing.Size(158, 23);
+            this.exportTxt.TabIndex = 14;
+            this.exportTxt.Text = "Экспорт в .txt";
+            this.exportTxt.UseVisualStyleBackColor = true;
+            this.exportTxt.Click += new System.EventHandler(this.exportTxt_Click);
+            // 
+            // fileExtError
+            // 
+            this.fileExtError.AutoSize = true;
+            this.fileExtError.ForeColor = System.Drawing.Color.Red;
+            this.fileExtError.Location = new System.Drawing.Point(319, 409);
+            this.fileExtError.Name = "fileExtError";
+            this.fileExtError.Size = new System.Drawing.Size(10, 13);
+            this.fileExtError.TabIndex = 15;
+            this.fileExtError.Text = " ";
+            // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(374, 137);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(95, 23);
+            this.clear.TabIndex = 16;
+            this.clear.Text = "Очистить";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
+            // version
+            // 
+            this.version.AutoSize = true;
+            this.version.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.version.Location = new System.Drawing.Point(12, 421);
+            this.version.Name = "version";
+            this.version.Size = new System.Drawing.Size(10, 13);
+            this.version.TabIndex = 17;
+            this.version.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 408);
+            this.ClientSize = new System.Drawing.Size(506, 443);
+            this.Controls.Add(this.version);
+            this.Controls.Add(this.clear);
+            this.Controls.Add(this.fileExtError);
+            this.Controls.Add(this.exportTxt);
             this.Controls.Add(this.countErrorMsg);
             this.Controls.Add(this.passwordsCount);
             this.Controls.Add(this.label4);
@@ -230,6 +279,10 @@
         private System.Windows.Forms.TextBox passwordsCount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label countErrorMsg;
+        private System.Windows.Forms.Button exportTxt;
+        private System.Windows.Forms.Label fileExtError;
+        private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Label version;
     }
 }
 

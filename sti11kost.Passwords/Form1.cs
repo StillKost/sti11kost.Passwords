@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using sti11kost.Passwords.PasswordGenerator;
 using System.Threading;
+using System.IO;
+using System.Reflection;
 
 namespace sti11kost.Passwords
 {
@@ -11,12 +13,15 @@ namespace sti11kost.Passwords
         public Form1()
         {
             InitializeComponent();
+
+            var assembly = Assembly.GetExecutingAssembly().GetName();
+            version.Text = $"{assembly.Name} v{assembly.Version}";
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             ResetErrorMessages(new List<Label>() {
-                sizeError, includeStrWarning, countErrorMsg
+                sizeError, includeStrWarning, countErrorMsg, fileExtError
             });
 
             var passwordGenerator = new CustomPasswordGenerator();
@@ -54,6 +59,11 @@ namespace sti11kost.Passwords
                         PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
                         // In order to would be no identical passwords.
                         Thread.Sleep(10);
+                    }
+
+                    if (!string.IsNullOrEmpty(totalPasswords.Text))
+                    {
+                        exportTxt.Enabled = true;
                     }
                 }
             }
@@ -93,5 +103,44 @@ namespace sti11kost.Passwords
             textBox.Text += str + "\r\n";
         }
         #endregion
+
+        private void exportTxt_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                dialog.Title = "Выберите файл для записи";
+                dialog.DefaultExt = "txt";
+                dialog.ShowDialog();
+                var path = dialog.FileName;
+
+                if (!string.IsNullOrEmpty(totalPasswords.Text))
+                {
+                    if (Path.GetExtension(path) == ".txt")
+                    {
+                        using (var file = File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                        {
+                            StreamWriter streamWriter = new StreamWriter(file);
+                            streamWriter.Write(totalPasswords.Text);
+                            streamWriter.Flush();
+                        }
+                    }
+                    else
+                    {
+                        fileExtError.Text = "Файл имеет неверный формат!";
+                    }
+                }
+                else
+                {
+                    fileExtError.Text = "Сгенерируйте пароль (и)!";
+                }
+            }
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            exportTxt.Enabled = false;
+            totalPasswords.Text = "";
+        }
     }
 }
