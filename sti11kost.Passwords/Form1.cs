@@ -124,6 +124,7 @@ namespace sti11kost.Passwords
                             streamWriter.Write(totalPasswords.Text);
                             streamWriter.Flush();
                         }
+                        MessageBox.Show($"Успешно сохранено в файл \"{path}\"", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
