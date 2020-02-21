@@ -90,7 +90,7 @@
             this.includeStr.Location = new System.Drawing.Point(127, 100);
             this.includeStr.Name = "includeStr";
             this.includeStr.Size = new System.Drawing.Size(168, 20);
-            this.includeStr.TabIndex = 4;
+            this.includeStr.TabIndex = 3;
             // 
             // label3
             // 
@@ -166,7 +166,7 @@
             this.passwordsCount.Location = new System.Drawing.Point(127, 64);
             this.passwordsCount.Name = "passwordsCount";
             this.passwordsCount.Size = new System.Drawing.Size(70, 20);
-            this.passwordsCount.TabIndex = 12;
+            this.passwordsCount.TabIndex = 2;
             // 
             // label4
             // 
