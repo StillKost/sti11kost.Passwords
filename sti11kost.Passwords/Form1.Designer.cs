@@ -48,12 +48,14 @@
             this.fileExtError = new System.Windows.Forms.Label();
             this.clear = new System.Windows.Forms.Button();
             this.version = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dontUse = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 37);
+            this.label1.Location = new System.Drawing.Point(29, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 0;
@@ -61,7 +63,7 @@
             // 
             // size
             // 
-            this.size.Location = new System.Drawing.Point(127, 37);
+            this.size.Location = new System.Drawing.Point(127, 21);
             this.size.Name = "size";
             this.size.Size = new System.Drawing.Size(70, 20);
             this.size.TabIndex = 1;
@@ -70,7 +72,7 @@
             // 
             this.sizeError.AutoSize = true;
             this.sizeError.ForeColor = System.Drawing.Color.Red;
-            this.sizeError.Location = new System.Drawing.Point(203, 40);
+            this.sizeError.Location = new System.Drawing.Point(203, 24);
             this.sizeError.Name = "sizeError";
             this.sizeError.Size = new System.Drawing.Size(10, 13);
             this.sizeError.TabIndex = 2;
@@ -79,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 100);
+            this.label2.Location = new System.Drawing.Point(29, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 26);
             this.label2.TabIndex = 3;
@@ -87,7 +89,7 @@
             // 
             // includeStr
             // 
-            this.includeStr.Location = new System.Drawing.Point(127, 100);
+            this.includeStr.Location = new System.Drawing.Point(127, 84);
             this.includeStr.Name = "includeStr";
             this.includeStr.Size = new System.Drawing.Size(168, 20);
             this.includeStr.TabIndex = 3;
@@ -95,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 173);
+            this.label3.Location = new System.Drawing.Point(29, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 3;
@@ -103,7 +105,7 @@
             // 
             // totalPasswords
             // 
-            this.totalPasswords.Location = new System.Drawing.Point(127, 170);
+            this.totalPasswords.Location = new System.Drawing.Point(127, 154);
             this.totalPasswords.Multiline = true;
             this.totalPasswords.Name = "totalPasswords";
             this.totalPasswords.ReadOnly = true;
@@ -113,7 +115,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(127, 383);
+            this.button1.Location = new System.Drawing.Point(127, 423);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 23);
             this.button1.TabIndex = 7;
@@ -124,7 +126,7 @@
             // difirentRegister
             // 
             this.difirentRegister.AutoSize = true;
-            this.difirentRegister.Location = new System.Drawing.Point(127, 304);
+            this.difirentRegister.Location = new System.Drawing.Point(127, 288);
             this.difirentRegister.Name = "difirentRegister";
             this.difirentRegister.Size = new System.Drawing.Size(247, 17);
             this.difirentRegister.TabIndex = 8;
@@ -134,7 +136,7 @@
             // useNums
             // 
             this.useNums.AutoSize = true;
-            this.useNums.Location = new System.Drawing.Point(127, 328);
+            this.useNums.Location = new System.Drawing.Point(127, 312);
             this.useNums.Name = "useNums";
             this.useNums.Size = new System.Drawing.Size(136, 17);
             this.useNums.TabIndex = 9;
@@ -145,7 +147,7 @@
             // 
             this.includeStrWarning.AutoSize = true;
             this.includeStrWarning.ForeColor = System.Drawing.Color.Goldenrod;
-            this.includeStrWarning.Location = new System.Drawing.Point(124, 123);
+            this.includeStrWarning.Location = new System.Drawing.Point(124, 107);
             this.includeStrWarning.Name = "includeStrWarning";
             this.includeStrWarning.Size = new System.Drawing.Size(10, 13);
             this.includeStrWarning.TabIndex = 10;
@@ -154,7 +156,7 @@
             // useSpecDigits
             // 
             this.useSpecDigits.AutoSize = true;
-            this.useSpecDigits.Location = new System.Drawing.Point(127, 351);
+            this.useSpecDigits.Location = new System.Drawing.Point(127, 335);
             this.useSpecDigits.Name = "useSpecDigits";
             this.useSpecDigits.Size = new System.Drawing.Size(178, 17);
             this.useSpecDigits.TabIndex = 9;
@@ -163,7 +165,7 @@
             // 
             // passwordsCount
             // 
-            this.passwordsCount.Location = new System.Drawing.Point(127, 64);
+            this.passwordsCount.Location = new System.Drawing.Point(127, 48);
             this.passwordsCount.Name = "passwordsCount";
             this.passwordsCount.Size = new System.Drawing.Size(70, 20);
             this.passwordsCount.TabIndex = 2;
@@ -171,7 +173,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 64);
+            this.label4.Location = new System.Drawing.Point(29, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 26);
             this.label4.TabIndex = 11;
@@ -181,7 +183,7 @@
             // 
             this.countErrorMsg.AutoSize = true;
             this.countErrorMsg.ForeColor = System.Drawing.Color.Red;
-            this.countErrorMsg.Location = new System.Drawing.Point(203, 64);
+            this.countErrorMsg.Location = new System.Drawing.Point(203, 48);
             this.countErrorMsg.Name = "countErrorMsg";
             this.countErrorMsg.Size = new System.Drawing.Size(10, 13);
             this.countErrorMsg.TabIndex = 13;
@@ -190,7 +192,7 @@
             // exportTxt
             // 
             this.exportTxt.Enabled = false;
-            this.exportTxt.Location = new System.Drawing.Point(311, 383);
+            this.exportTxt.Location = new System.Drawing.Point(311, 423);
             this.exportTxt.Name = "exportTxt";
             this.exportTxt.Size = new System.Drawing.Size(158, 23);
             this.exportTxt.TabIndex = 14;
@@ -202,7 +204,7 @@
             // 
             this.fileExtError.AutoSize = true;
             this.fileExtError.ForeColor = System.Drawing.Color.Red;
-            this.fileExtError.Location = new System.Drawing.Point(319, 409);
+            this.fileExtError.Location = new System.Drawing.Point(319, 393);
             this.fileExtError.Name = "fileExtError";
             this.fileExtError.Size = new System.Drawing.Size(10, 13);
             this.fileExtError.TabIndex = 15;
@@ -210,7 +212,7 @@
             // 
             // clear
             // 
-            this.clear.Location = new System.Drawing.Point(374, 137);
+            this.clear.Location = new System.Drawing.Point(374, 121);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(95, 23);
             this.clear.TabIndex = 16;
@@ -222,17 +224,35 @@
             // 
             this.version.AutoSize = true;
             this.version.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.version.Location = new System.Drawing.Point(12, 421);
+            this.version.Location = new System.Drawing.Point(12, 461);
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(10, 13);
             this.version.TabIndex = 17;
             this.version.Text = " ";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 371);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 26);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Исключить строки\r\n(через \",\")";
+            // 
+            // dontUse
+            // 
+            this.dontUse.Location = new System.Drawing.Point(127, 376);
+            this.dontUse.Name = "dontUse";
+            this.dontUse.Size = new System.Drawing.Size(342, 20);
+            this.dontUse.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 443);
+            this.ClientSize = new System.Drawing.Size(506, 483);
+            this.Controls.Add(this.dontUse);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.version);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.fileExtError);
@@ -285,6 +305,8 @@
         private System.Windows.Forms.Label fileExtError;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Label version;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox dontUse;
     }
 }
 

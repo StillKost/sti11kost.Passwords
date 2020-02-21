@@ -38,6 +38,7 @@ namespace sti11kost.Passwords
             passwordGenerator.difirentRegister = difirentRegister.Checked ? true : false;
             passwordGenerator.useNumerics = useNums.Checked ? true : false;
             passwordGenerator.useSpecDigits = useSpecDigits.Checked ? true : false;
+            passwordGenerator.unusebleDigits = dontUse.Text.Trim().Split(',');
 
 
             if (includeStr.Text.Length > _size)

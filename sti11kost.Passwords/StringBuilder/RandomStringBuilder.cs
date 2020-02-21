@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 
 namespace sti11kost.Passwords.StringBuilder
 {
     public class RandomStringBuilder : IStringBuilder
     {
-        public string GetRandomString(int size, bool difirentRegister, bool useNumerics, bool useSpecDigits)
+        private int Counter = 0;
+        public string GetRandomString(int size, bool difirentRegister, bool useNumerics, bool useSpecDigits, string[] unusebleDigits)
         {
             // String of chars.
             string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -13,7 +15,7 @@ namespace sti11kost.Passwords.StringBuilder
 
             Random random = new Random((int)DateTime.Now.Ticks);
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
-           
+
             for (int i = 0; i < size; i++)
             {
                 // Get random char from string of chars.
@@ -36,6 +38,20 @@ namespace sti11kost.Passwords.StringBuilder
                 {
                     char digit = specDigits.ToCharArray()[random.Next(0, specDigits.Length - 1)];
                     ch = digit;
+                }
+
+                while (unusebleDigits.ToList().Any(x => x == ch.ToString()))
+                {
+                    if (Counter >= size)
+                    {
+                        return "< Не удалось сгенерировать пароль удовлетворяющий всем условиям >";
+                    }
+                    ch = characters[random.Next(characters.Length)];
+                    if (useNumerics && random.Next(-9999, 9999) % 2 == 0)
+                    {
+                        ch = random.Next(0, 11).ToString().ToCharArray()[0];
+                    }
+                    Counter++;
                 }
 
                 builder.Append(ch);
