@@ -16,6 +16,9 @@ namespace sti11kost.Passwords
 
             var assembly = Assembly.GetExecutingAssembly().GetName();
             version.Text = $"{assembly.Name} v{assembly.Version}";
+            passwordsCount.Text = Properties.Settings.Default.PasswordsCount.ToString();
+            size.Text = Properties.Settings.Default.PasswordLength.ToString();
+            dontUse.Text = Properties.Settings.Default.ExcludeCharacters;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -46,33 +49,18 @@ namespace sti11kost.Passwords
                 AddErrorMessage(includeStrWarning, "Входная строка больше указанного размера.");
             }
 
-            if (int.TryParse(passwordsCount.Text, out int passwordsCont))
+            for (int i = 0; i < passwordsCount.Value; i++)
             {
-                if (passwordsCont > 10)
-                {
-                    countErrorMsg.ForeColor = System.Drawing.Color.Orange;
-                    AddErrorMessage(countErrorMsg, "Максимум 10.");
-                }
-                else
-                {
-                    for (int i = 0; i < passwordsCont; i++)
-                    {
-                        PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
-                        // In order to would be no identical passwords.
-                        Thread.Sleep(10);
-                    }
+                PrintPassword(totalPasswords, passwordGenerator.GeneratePassword());
+                // In order to would be no identical passwords.
+                Thread.Sleep(10);
+            }
 
-                    if (!string.IsNullOrEmpty(totalPasswords.Text))
-                    {
-                        exportTxt.Enabled = true;
-                    }
-                }
-            }
-            else
+            if (!string.IsNullOrEmpty(totalPasswords.Text))
             {
-                countErrorMsg.ForeColor = System.Drawing.Color.Red;
-                AddErrorMessage(countErrorMsg, "Введите число!");                
+                exportTxt.Enabled = true;
             }
+
         }
 
 
@@ -143,6 +131,18 @@ namespace sti11kost.Passwords
         {
             exportTxt.Enabled = false;
             totalPasswords.Text = "";
+        }
+
+        private void settings_Click(object sender, EventArgs e)
+        {
+            new Settings().ShowDialog();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            passwordsCount.Text = Properties.Settings.Default.PasswordsCount.ToString();
+            size.Text = Properties.Settings.Default.PasswordLength.ToString();
+            dontUse.Text = Properties.Settings.Default.ExcludeCharacters;
         }
     }
 }

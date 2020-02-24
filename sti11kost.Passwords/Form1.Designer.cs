@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
-            this.size = new System.Windows.Forms.TextBox();
             this.sizeError = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.includeStr = new System.Windows.Forms.TextBox();
@@ -41,7 +40,6 @@
             this.useNums = new System.Windows.Forms.CheckBox();
             this.includeStrWarning = new System.Windows.Forms.Label();
             this.useSpecDigits = new System.Windows.Forms.CheckBox();
-            this.passwordsCount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.countErrorMsg = new System.Windows.Forms.Label();
             this.exportTxt = new System.Windows.Forms.Button();
@@ -50,6 +48,11 @@
             this.version = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dontUse = new System.Windows.Forms.TextBox();
+            this.settings = new System.Windows.Forms.Button();
+            this.size = new System.Windows.Forms.NumericUpDown();
+            this.passwordsCount = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.size)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordsCount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,13 +63,6 @@
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Длина пароля:";
-            // 
-            // size
-            // 
-            this.size.Location = new System.Drawing.Point(127, 21);
-            this.size.Name = "size";
-            this.size.Size = new System.Drawing.Size(70, 20);
-            this.size.TabIndex = 1;
             // 
             // sizeError
             // 
@@ -163,13 +159,6 @@
             this.useSpecDigits.Text = "Использовать спец. символы";
             this.useSpecDigits.UseVisualStyleBackColor = true;
             // 
-            // passwordsCount
-            // 
-            this.passwordsCount.Location = new System.Drawing.Point(127, 48);
-            this.passwordsCount.Name = "passwordsCount";
-            this.passwordsCount.Size = new System.Drawing.Size(70, 20);
-            this.passwordsCount.TabIndex = 2;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -246,11 +235,48 @@
             this.dontUse.Size = new System.Drawing.Size(342, 20);
             this.dontUse.TabIndex = 19;
             // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(419, 11);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(75, 23);
+            this.settings.TabIndex = 20;
+            this.settings.Text = "Настройки";
+            this.settings.UseVisualStyleBackColor = true;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            // 
+            // size
+            // 
+            this.size.Location = new System.Drawing.Point(127, 21);
+            this.size.Name = "size";
+            this.size.Size = new System.Drawing.Size(120, 20);
+            this.size.TabIndex = 21;
+            // 
+            // passwordsCount
+            // 
+            this.passwordsCount.Location = new System.Drawing.Point(127, 48);
+            this.passwordsCount.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.passwordsCount.Name = "passwordsCount";
+            this.passwordsCount.Size = new System.Drawing.Size(120, 20);
+            this.passwordsCount.TabIndex = 21;
+            this.passwordsCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 483);
+            this.Controls.Add(this.passwordsCount);
+            this.Controls.Add(this.size);
+            this.Controls.Add(this.settings);
             this.Controls.Add(this.dontUse);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.version);
@@ -258,7 +284,6 @@
             this.Controls.Add(this.fileExtError);
             this.Controls.Add(this.exportTxt);
             this.Controls.Add(this.countErrorMsg);
-            this.Controls.Add(this.passwordsCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.includeStrWarning);
             this.Controls.Add(this.useSpecDigits);
@@ -270,7 +295,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sizeError);
-            this.Controls.Add(this.size);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -279,6 +303,9 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "sti11kost.Passwords: Генератор паролей";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
+            ((System.ComponentModel.ISupportInitialize)(this.size)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordsCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +314,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox size;
         private System.Windows.Forms.Label sizeError;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox includeStr;
@@ -298,7 +324,6 @@
         private System.Windows.Forms.CheckBox useNums;
         private System.Windows.Forms.Label includeStrWarning;
         private System.Windows.Forms.CheckBox useSpecDigits;
-        private System.Windows.Forms.TextBox passwordsCount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label countErrorMsg;
         private System.Windows.Forms.Button exportTxt;
@@ -307,6 +332,9 @@
         private System.Windows.Forms.Label version;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox dontUse;
+        private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.NumericUpDown size;
+        private System.Windows.Forms.NumericUpDown passwordsCount;
     }
 }
 
