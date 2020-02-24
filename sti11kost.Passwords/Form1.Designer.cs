@@ -251,6 +251,7 @@
             this.size.Name = "size";
             this.size.Size = new System.Drawing.Size(120, 20);
             this.size.TabIndex = 21;
+            this.size.ValueChanged += new System.EventHandler(this.size_ValueChanged);
             // 
             // passwordsCount
             // 

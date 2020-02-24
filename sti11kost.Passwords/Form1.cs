@@ -19,8 +19,9 @@ namespace sti11kost.Passwords
             passwordsCount.Text = Properties.Settings.Default.PasswordsCount.ToString();
             size.Text = Properties.Settings.Default.PasswordLength.ToString();
             dontUse.Text = Properties.Settings.Default.ExcludeCharacters;
+            includeStr.MaxLength = Properties.Settings.Default.PasswordLength;
         }
-
+        
         private void Button1_Click(object sender, EventArgs e)
         {
             ResetErrorMessages(new List<Label>() {
@@ -143,6 +144,11 @@ namespace sti11kost.Passwords
             passwordsCount.Text = Properties.Settings.Default.PasswordsCount.ToString();
             size.Text = Properties.Settings.Default.PasswordLength.ToString();
             dontUse.Text = Properties.Settings.Default.ExcludeCharacters;
+        }
+
+        private void size_ValueChanged(object sender, EventArgs e)
+        {
+            includeStr.MaxLength = int.Parse(size.Value.ToString());
         }
     }
 }
